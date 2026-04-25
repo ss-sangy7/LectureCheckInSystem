@@ -1,0 +1,43 @@
+﻿.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.profile-info {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.info-row {
+    margin-bottom: 0.75rem;
+}
+
+.label {
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+}
+
+.change-password {
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.btn-update {
+    background-color: #0a2b4e;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+}

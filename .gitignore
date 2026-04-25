@@ -1,0 +1,21 @@
+## Ignore Visual Studio temporary files, build results, etc.
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.pdb
+*.tmp
+*.log
+.vs/
+packages/
+App_Data/*.mdf
+App_Data/*.ldf
+*.dbmdl
+
+## Ignore Rider / other IDEs
+.idea/
+*.sln.iml
+
+## Ignore published output
+PublishProfiles/

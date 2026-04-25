@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="LectureSystem.master.cs" Inherits="LectureCheckInSystem.LectureSystem" %>
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"> <!--namespace declaration that helps Visual Studio understand that this is a Web Form page-->
+    <head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <title>Lecturer Check-In System</title>
+    </asp:ContentPlaceHolder>
+    <link href="~/Styles/LectureSystem.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="header">
+    <div class="logo-container">
+        <img src="/Images/bookimage3.jpg" alt="Logo" class="logo" />
+    </div>
+    <div class="system-title">
+        Lecture Check-In System
+    </div>
+    <div class="nav-links">
+        <!-- Lecturer links -->
+        <asp:HyperLink ID="lnkCheckIn" runat="server" NavigateUrl="~/Lecturer/CheckIn.aspx" Visible="false">Check In</asp:HyperLink>
+        <asp:HyperLink ID="lnkProfile" runat="server" NavigateUrl="~/Lecturer/Profile.aspx" Visible="false">Profile</asp:HyperLink>
+        
+        <!-- Admin links -->
+        <asp:HyperLink ID="lnkDashboard" runat="server" NavigateUrl="~/Admin/Dashboard.aspx" Visible="false">Dashboard</asp:HyperLink>
+        <asp:HyperLink ID="lnkManageUsers" runat="server" NavigateUrl="~/Admin/ManageUsers.aspx" Visible="false">Manage Users</asp:HyperLink>
+        <asp:HyperLink ID="lnkManageSchedules" runat="server" NavigateUrl="~/Admin/ManageSchedules.aspx" Visible="false">Manage Schedules</asp:HyperLink>
+        
+        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click" Visible="false">Logout</asp:LinkButton>
+    </div>
+</div> 
+        <!-- Main content -->
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <p>Default content – to be replaced</p>
+        </asp:ContentPlaceHolder>
+        <div class="footer">
+            © 2026. All Rights Reserved  <!-- or can use '&copy;' to substitute '©' -->
+        </div>
+    </form>
+</body>
+</html> <!-- all user passwords are 'test123' for development purposes -->

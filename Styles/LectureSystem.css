@@ -1,0 +1,175 @@
+﻿/* Global reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Use flexbox on body to push footer down */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* full viewport height */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    color: #1e293b;
+    line-height: 1.5;
+}
+
+/* Header styling */
+.header {
+    background-color: #0a2b4e;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 0.5rem;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.system-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .system-title {
+        text-align: center;
+    }
+}
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.nav-links a, .nav-links .btn-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+}
+
+    .nav-links a:hover {
+        text-decoration: underline;
+    }
+
+/* Main content area – wraps the ContentPlaceHolder,The form (which contains everything) also needs to flex */
+form {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* takes all available space */
+    margin: 0;
+    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 130px); /* pushes footer down */
+}
+
+    /* Content placeholder styling – child pages will inject here */
+    /* Add some padding so content doesn't touch edges */
+    form > div:not(.header):not(.footer),
+    form > asp\\:contentplaceholder,
+    form > .content-placeholder-wrapper {
+        padding: 2rem;
+    }
+
+    /* But if you directly put content in ContentPlaceHolder1, it will inherit this */
+    /* More generic: any direct child of form except header/footer gets padding */
+    /* The main content area (where child pages inject content) should grow */
+    /* This targets the direct div that wraps ContentPlaceHolder1 */
+    form > :not(.header):not(.footer) {
+        flex: 1; /* pushes footer down when content is short */
+        padding: 2rem;
+    }
+
+/* Footer styling, Footer stays at bottom automatically */
+.footer {
+    background-color: #1e293b;
+    color: #94a3b8;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.85rem;
+    border-top: 1px solid #334155;
+    margin-top: auto; /* extra safety */
+}
+
+/* Simple form styling (for login, register pages) */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #0f172a;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+}
+
+    input:focus,
+    select:focus {
+        outline: none;
+        border-color: #0a2b4e;
+        box-shadow: 0 0 0 3px rgba(10,43,78,0.1);
+    }
+
+button, .btn, input[type="submit"] {
+    background-color: #0a2b4e;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+    button:hover, .btn:hover, input[type="submit"]:hover {
+        background-color: #1e4a76;
+    }
+
+/* Simple responsive */
+@media (max-width: 768px) {
+    .header {
+        font-size: 1.2rem;
+        padding: 0.75rem 1rem;
+    }
+
+    form > :not(.header):not(.footer) {
+        padding: 1rem;
+    }
+}

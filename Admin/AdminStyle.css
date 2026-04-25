@@ -1,0 +1,169 @@
+﻿.admin-dashboard, .manage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+    .stat-card h3 {
+        font-size: 1rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+    }
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0a2b4e;
+    margin: 0;
+}
+
+.trends-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.trend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    gap: 1rem;
+}
+
+.day {
+    width: 50px;
+    font-weight: bold;
+}
+
+.bar-container {
+    flex: 1;
+    background: #e9ecef;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    height: 30px;
+}
+
+.bar {
+    background: #0a2b4e;
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.3s;
+}
+
+.count {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.data-grid {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+    .data-grid th, .data-grid td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .data-grid th {
+        background-color: #0a2b4e;
+        color: white;
+    }
+
+.action-buttons .btn {
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background: #ffc107;
+    color: #333;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-add {
+    background: #28a745;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 30px;
+}
+.btn-reset {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal .form-group {
+    margin-bottom: 1rem;
+}
+
+.modal .input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 400px;
+    max-width: 90%;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}

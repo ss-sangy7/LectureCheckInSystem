@@ -1,0 +1,36 @@
+﻿.checkin-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.welcome-section {
+    background: #e6f0fa;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.grid {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .grid th, .grid td {
+        border: 1px solid #ccc;
+        padding: 8px;
+        text-align: left;
+    }
+
+.checkin-btn {
+    background-color: #0a2b4e;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+    .checkin-btn:hover {
+        background-color: #1e4a76;
+    }
