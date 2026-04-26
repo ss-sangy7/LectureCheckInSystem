@@ -11,14 +11,20 @@
 
         <div class="schedule-grid">
             <asp:GridView ID="gvSchedule" runat="server" AutoGenerateColumns="False" CssClass="grid" DataKeyNames="ScheduleID"
-                OnRowCommand="gvSchedule_RowCommand">
+                OnRowCommand="gvSchedule_RowCommand" OnSelectedIndexChanged="gvSchedule_SelectedIndexChanged2">
                 <Columns>
                     <asp:BoundField DataField="CourseCode" HeaderText="Course" />
                     <asp:BoundField DataField="Room" HeaderText="Room" />
                     <asp:BoundField DataField="StartTime" HeaderText="Time" DataFormatString="{0:hh\:mm tt}" />
                     <asp:BoundField DataField="Status" HeaderText="Status" />
-                    <asp:ButtonField Text="Check In" CommandName="CheckIn" ButtonType="Button" 
-                        ItemStyle-CssClass="checkin-btn" />
+                    <asp:TemplateField HeaderText="Action">
+                        <ItemTemplate>
+                            <asp:Button ID="btnCheckIn" runat="server" Text="Check In" CommandName="CheckIn"
+                                CommandArgument='<%# Container.DataItemIndex %>'
+                                OnClientClick="return confirm('Are you sure you want to check in? You will be logged out afterwards.');"
+                                CssClass="checkin-btn" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
         </div>

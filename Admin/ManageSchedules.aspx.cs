@@ -82,7 +82,7 @@ namespace LectureCheckInSystem.Admin
                 // Load schedule data into modal for editing
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
-                    string query = "SELECT ScheduleDate, CourseCode, Room, StartTime, LecturerID FROM Schedules WHERE ScheduleID = @ID";
+                    string query = "SELECT ScheduleDate, CourseCode, CourseName, Room, StartTime, LecturerID FROM Schedules WHERE ScheduleID = @ID";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@ID", scheduleId);
                     conn.Open();

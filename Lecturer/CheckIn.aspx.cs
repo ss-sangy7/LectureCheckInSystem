@@ -74,17 +74,12 @@ namespace LectureCheckInSystem.Lecturer
                 Session.Abandon();
 
 
-                string script = "alert('Check-in successful! You will now be logged out.'); window.location='~/Accounts/Login.aspx';";
-                ClientScript.RegisterStartupScript(this.GetType(), "checkinSuccess", script, true);
+                string loginUrl = ResolveUrl("~/Accounts/Login.aspx");
+                string script = $"alert('Check-in successful! You will now be logged out.'); window.location='{loginUrl}';";
             }
         }
 
-        protected void gvSchedule_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void gvSchedule_SelectedIndexChanged1(object sender, EventArgs e)
+        protected void gvSchedule_SelectedIndexChanged2(object sender, EventArgs e)
         {
 
         }

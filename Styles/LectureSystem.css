@@ -6,9 +6,11 @@
 }
 
 html, body {
+    width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: auto; /* in case of small screens, allow horizontal scroll */
 }
 
 /* Use flexbox on body to push footer down */
@@ -81,9 +83,12 @@ form {
     flex: 1; /* takes all available space */
     margin: 0;
     padding: 0;
-    max-width: 1200px;
-    margin: 0 auto;
+    width:100%;
+    /* have removed the 'max-width: 1200px;'*/
+    background-color: white;
     min-height: calc(100vh - 130px); /* pushes footer down */
+    /* box-shadow: optional, you might keep or remove based off of performance*/
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
 }
 
     /* Content placeholder styling – child pages will inject here */
@@ -97,10 +102,11 @@ form {
     /* But if you directly put content in ContentPlaceHolder1, it will inherit this */
     /* More generic: any direct child of form except header/footer gets padding */
     /* The main content area (where child pages inject content) should grow */
-    /* This targets the direct div that wraps ContentPlaceHolder1 */
+    /* This will target the direct div that wraps ContentPlaceHolder1 */
     form > :not(.header):not(.footer) {
         flex: 1; /* pushes footer down when content is short */
-        padding: 2rem;
+        padding: 1rem 2rem; /* less vertical, more horizontal */ 
+        width:100%; /*force full width*/
     }
 
 /* Footer styling, Footer stays at bottom automatically */
@@ -118,6 +124,36 @@ form {
 .form-group {
     margin-bottom: 1.25rem;
 }
+
+.grid {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+    .grid th, .grid td {
+        padding: 10px 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .grid th {
+        background-color: #0a2b4e;
+        color: white;
+    }
+
+.checkin-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+    .checkin-btn:hover {
+        background-color: #218838;
+    }
 
 label {
     display: block;
