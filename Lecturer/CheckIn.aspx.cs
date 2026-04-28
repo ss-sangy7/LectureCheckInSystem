@@ -57,7 +57,7 @@ namespace LectureCheckInSystem.Lecturer
                 int scheduleId = (int)gvSchedule.DataKeys[index].Value;
                 int lecturerId = (int)Session["LecturerID"];
 
-                // Insert check-in record
+                /* Insert check-in record
                 string connStr = ConfigurationManager.ConnectionStrings["LecturerCheckInDB"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
@@ -67,6 +67,17 @@ namespace LectureCheckInSystem.Lecturer
                     cmd.Parameters.AddWithValue("@LecturerID", lecturerId);
                     conn.Open();
                     cmd.ExecuteNonQuery();
+                } */
+
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (SqlException ex) when (ex.Number == 2627) // unique constraint violation
+                {
+                    string script = "alert('You have already checked in to this schedule.');";
+                    ClientScript.RegisterStartupScript(this.GetType(), "dupAlert", script, true);
+                    return;
                 }
 
                 // After check-in, log out immediately
@@ -76,6 +87,19 @@ namespace LectureCheckInSystem.Lecturer
 
                 string loginUrl = ResolveUrl("~/Accounts/Login.aspx");
                 string script = $"alert('Check-in successful! You will now be logged out.'); window.location='{loginUrl}';";
+            }
+        }
+
+        protected void gvSchedule_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string status = DataBinder.Eval(e.Row.DataItem, "Status").ToString();
+                Button btn = (Button)e.Row.FindControl("btnCheckIn");
+                if (btn != null)
+                {
+                    btn.Visible = (status == "Pending");
+                }
             }
         }
 
