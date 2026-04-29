@@ -37,6 +37,7 @@ form {
     padding: 2rem;
     transition: transform 0.2s ease;
     margin: 20px;
+    align-items: center;
 }
 
 /* Form elements inside the card */

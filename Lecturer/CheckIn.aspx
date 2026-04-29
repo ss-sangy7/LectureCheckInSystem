@@ -11,7 +11,7 @@
 
         <div class="schedule-grid">
             <asp:GridView ID="gvSchedule" runat="server" AutoGenerateColumns="False" CssClass="grid" DataKeyNames="ScheduleID"
-                OnRowCommand="gvSchedule_RowCommand" OnSelectedIndexChanged="gvSchedule_SelectedIndexChanged2" OnRowDataBound="gvSchedule_RowDataBound">
+                OnRowCommand="gvSchedule_RowCommand" OnRowDataBound="gvSchedule_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField="CourseCode" HeaderText="Course" />
                     <asp:BoundField DataField="Room" HeaderText="Room" />

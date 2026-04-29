@@ -24,6 +24,13 @@ body {
     line-height: 1.5;
 }
 
+ /* Ensure login page uses full centering */
+ body:has(.login-card) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
 /* Header styling */
 .header {
     background-color: #0a2b4e;

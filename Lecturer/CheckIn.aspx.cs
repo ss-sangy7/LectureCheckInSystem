@@ -57,7 +57,7 @@ namespace LectureCheckInSystem.Lecturer
                 int scheduleId = (int)gvSchedule.DataKeys[index].Value;
                 int lecturerId = (int)Session["LecturerID"];
 
-                /* Insert check-in record
+                // Insert check-in record
                 string connStr = ConfigurationManager.ConnectionStrings["LecturerCheckInDB"].ConnectionString;
                 using (SqlConnection conn = new SqlConnection(connStr))
                 {
@@ -66,27 +66,22 @@ namespace LectureCheckInSystem.Lecturer
                     cmd.Parameters.AddWithValue("@ScheduleID", scheduleId);
                     cmd.Parameters.AddWithValue("@LecturerID", lecturerId);
                     conn.Open();
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException ex) when (ex.Number == 2627) // unique constraint violation
+                    {
+                        // duplicate error
+                        ClientScript.RegisterStartupScript(this.GetType(), "dupAlert", "alert('You have already checked in to this schedule.');", true);
+                        return;
+                    }
                     cmd.ExecuteNonQuery();
-                } */
-
-                try
-                {
-                    cmd.ExecuteNonQuery();
-                }
-                catch (SqlException ex) when (ex.Number == 2627) // unique constraint violation
-                {
-                    string script = "alert('You have already checked in to this schedule.');";
-                    ClientScript.RegisterStartupScript(this.GetType(), "dupAlert", script, true);
-                    return;
-                }
-
-                // After check-in, log out immediately
-                Session.Clear();
-                Session.Abandon();
-
+                } 
 
                 string loginUrl = ResolveUrl("~/Accounts/Login.aspx");
                 string script = $"alert('Check-in successful! You will now be logged out.'); window.location='{loginUrl}';";
+                ClientScript.RegisterStartupScript(this.GetType(), "CheckinSuccess", script, true);
             }
         }
 
@@ -101,11 +96,6 @@ namespace LectureCheckInSystem.Lecturer
                     btn.Visible = (status == "Pending");
                 }
             }
-        }
-
-        protected void gvSchedule_SelectedIndexChanged2(object sender, EventArgs e)
-        {
-
         }
     }
 }
