@@ -10,24 +10,29 @@ body {
     padding: 0;
 }
 
-/* Override the master page's white form background */
-form {
+
+/* Force centering for the login page */
+form {/* Override the master page's white form background */
     background: transparent !important;
     box-shadow: none !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 /* Override the ContentPlaceHolder1 to become a flex container that centers the card */
+/* The container that holds the login card should be a flex column to allow centering */
 #ContentPlaceHolder1 {
     display: flex !important;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
     padding: 0 !important;
-    margin: 0;
-    background: transparent;
+    margin: 0 !important;
+    background: transparent !important;
 }
 
-/* The login card styling */
+/* The login card itself – no extra width constraints */
 .login-card {
     background: white;
     border-radius: 20px;
